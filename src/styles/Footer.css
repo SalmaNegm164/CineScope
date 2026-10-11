@@ -1,0 +1,229 @@
+.cine-footer {
+  margin-top: 50px;
+  padding: 0 var(--page-padding);
+  border-top: 1px solid var(--color-border);
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(255, 107, 53, 0.07), transparent 45%),
+    #101116;
+}
+
+.cine-footer__main {
+  display: grid;
+  grid-template-columns: 1.7fr 0.8fr 1fr;
+  gap: clamp(35px, 7vw, 100px);
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 65px 0 50px;
+}
+
+.cine-footer__brand {
+  max-width: 360px;
+}
+
+.cine-footer__brand .cine-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.cine-footer__brand .cine-brand__icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.cine-footer__brand .cine-brand__name {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.cine-footer__brand .cine-brand__name span {
+  color: var(--color-primary);
+}
+
+.cine-footer__brand > p,
+.cine-footer__links > p {
+  margin: 19px 0 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.cine-footer__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.cine-footer__links h3 {
+  margin: 5px 0 8px;
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cine-footer__links > a {
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cine-footer__links > a:hover {
+  color: var(--color-primary);
+}
+
+.cine-footer__links > p {
+  margin: -5px 0 0;
+}
+
+.cine-footer__links .cine-footer__discover {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.cine-footer__discover span {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.cine-footer__discover:hover span {
+  transform: translate(3px, -3px);
+}
+
+.cine-footer__bottom {
+  display: flex;
+  max-width: var(--container-width);
+  min-height: 75px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0 auto;
+  border-top: 1px solid var(--color-border);
+}
+
+.cine-footer__bottom > p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.79rem;
+  line-height: 1.7;
+}
+
+.cine-footer__credit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cine-footer__credit svg {
+  color: var(--color-primary);
+}
+
+.cine-footer__top {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cine-footer__top:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.cine-footer__attribution {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 0 22px;
+  color: #777985;
+  font-size: 0.72rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.cine-footer__attribution a {
+  color: #a9aab5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cine-footer__attribution a:hover {
+  color: var(--color-primary);
+}
+
+@media (max-width: 760px) {
+  .cine-footer__main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 38px 28px;
+    padding: 45px 0 35px;
+  }
+
+  .cine-footer__brand {
+    grid-column: 1 / -1;
+    max-width: 460px;
+  }
+
+  .cine-footer__bottom {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+
+  .cine-footer__credit {
+    order: 1;
+    width: calc(100% - 55px);
+  }
+
+  .cine-footer__top {
+    order: 2;
+  }
+}
+
+@media (max-width: 420px) {
+  .cine-footer__main {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .cine-footer__brand {
+    grid-column: auto;
+  }
+
+  .cine-footer__bottom > p {
+    font-size: 0.74rem;
+  }
+
+  .cine-footer__attribution {
+    justify-content: flex-start;
+    text-align: left;
+  }
+}

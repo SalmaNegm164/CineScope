@@ -1,0 +1,200 @@
+
+.movie-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.movie-card__poster {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2 / 3;
+  background: #191a21;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  isolation: isolate;
+}
+
+.movie-card__poster > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.movie-card:hover .movie-card__poster > img {
+  transform: scale(1.06);
+}
+
+.movie-card__placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  color: #9697a4;
+  font-size: 13px;
+  text-align: center;
+}
+
+.movie-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 14, 0.1),
+    rgba(10, 10, 14, 0.85)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .movie-card__overlay,
+.movie-card:focus-within .movie-card__overlay {
+  opacity: 1;
+}
+
+.movie-card__details {
+  padding: 11px 17px;
+  color: #ffffff;
+  background: #ff6b35;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(8px);
+  transition: transform 0.3s ease, background 0.2s ease;
+}
+
+.movie-card:hover .movie-card__details,
+.movie-card:focus-within .movie-card__details {
+  transform: translateY(0);
+}
+
+.movie-card__details:hover {
+  background: #ff8052;
+}
+
+.movie-card__rating {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  color: #ffd166;
+  background: rgba(12, 13, 17, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.movie-card__bookmark {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: rgba(12, 13, 17, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.movie-card__bookmark:hover,
+.movie-card__bookmark.is-saved {
+  color: #ff784f;
+  background: #252129;
+}
+
+.movie-card__info {
+  padding: 13px 2px 4px;
+}
+
+.movie-card__title {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #f7f5f2;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  text-decoration: none;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.movie-card__title:hover {
+  color: #ff784f;
+}
+
+.movie-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 9px;
+  color: #9697a4;
+  font-size: 12px;
+}
+
+.movie-card__meta > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.movie-card__type {
+  padding: 4px 7px;
+  background: #191a21;
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .movie-card__poster {
+    border-radius: 11px;
+  }
+
+  .movie-card__info {
+    padding-top: 10px;
+  }
+
+  .movie-card__title {
+    font-size: 14px;
+  }
+
+  .movie-card__rating {
+    top: 7px;
+    left: 7px;
+    padding: 5px 7px;
+    font-size: 11px;
+  }
+
+  .movie-card__bookmark {
+    top: 7px;
+    right: 7px;
+    width: 31px;
+    height: 31px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .movie-card__poster > img,
+  .movie-card__overlay,
+  .movie-card__details,
+  .movie-card__bookmark,
+  .movie-card__title {
+    transition: none;
+  }
+}

@@ -1,0 +1,206 @@
+
+.cine-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(12, 13, 17, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.cine-navbar__inner {
+  width: min(1440px, 100%);
+  min-height: 82px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.cine-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #f7f5f2;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.cine-brand__icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  color: #111116;
+  background: #ff6b35;
+  border-radius: 13px;
+  box-shadow: 0 5px 22px rgba(255, 107, 53, 0.2);
+}
+
+.cine-brand__name {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.cine-brand__name span {
+  color: #ff784f;
+}
+
+.cine-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 2.5vw, 36px);
+}
+
+.cine-nav a {
+  position: relative;
+  padding: 10px 0;
+  color: #a6a6b0;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.cine-nav a:hover,
+.cine-nav a.active {
+  color: #ffffff;
+}
+
+.cine-nav a.active::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  content: "";
+  background: #ff6b35;
+  border-radius: 5px;
+}
+
+.cine-navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cine-search-button,
+.cine-menu-button {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  color: #f7f5f2;
+  background: #1b1c23;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.cine-search-button:hover,
+.cine-menu-button:hover {
+  color: #ff784f;
+  background: #252129;
+  border-color: rgba(255, 107, 53, 0.35);
+}
+
+.cine-menu-button {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .cine-navbar__inner {
+    min-height: 74px;
+    padding: 0 5%;
+    gap: 16px;
+  }
+
+  .cine-nav {
+    gap: 16px;
+  }
+
+  .cine-nav a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 680px) {
+  .cine-navbar__inner {
+    min-height: 70px;
+  }
+
+  .cine-brand__icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .cine-brand__name {
+    font-size: 21px;
+  }
+
+  .cine-menu-button {
+    display: grid;
+  }
+
+  .cine-nav {
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    padding: 12px 5% 20px;
+    background: #101116;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .cine-nav.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .cine-nav a {
+    padding: 13px 12px;
+    border-radius: 9px;
+    font-size: 14px;
+  }
+
+  .cine-nav a.active {
+    color: #ff784f;
+    background: rgba(255, 107, 53, 0.08);
+  }
+
+  .cine-nav a.active::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cine-nav,
+  .cine-nav a,
+  .cine-search-button,
+  .cine-menu-button {
+    transition: none;
+  }
+}
